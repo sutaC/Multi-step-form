@@ -9,6 +9,7 @@
 
 	let selected = 1;
 	let finished = false;
+	let yearly = false;
 
 	function handleBack() {
 		if (selected > 1) return selected--;
@@ -25,16 +26,21 @@
 	<Header {selected}></Header>
 
 	<main>
+		<div class:hidden={selected !== 1 || finished}>
+			<Fieldset1></Fieldset1>
+		</div>
+		<div class:hidden={selected !== 2 || finished}>
+			<Fieldset2 bind:yearly></Fieldset2>
+		</div>
+		<div class:hidden={selected !== 3 || finished}>
+			<Fieldset3></Fieldset3>
+		</div>
+		<div class:hidden={selected !== 4 || finished}>
+			<Fieldset4></Fieldset4>
+		</div>
+
 		{#if finished}
 			<Finished></Finished>
-		{:else if selected === 1}
-			<Fieldset1></Fieldset1>
-		{:else if selected === 2}
-			<Fieldset2></Fieldset2>
-		{:else if selected === 3}
-			<Fieldset3></Fieldset3>
-		{:else if selected === 4}
-			<Fieldset4></Fieldset4>
 		{/if}
 
 		<div class:hidden={finished}>
@@ -51,7 +57,7 @@
 <style>
 	.app {
 		min-height: 100vh;
-		padding: 2rem 1rem;
+		padding: 0.75rem;
 		background-image: url(bg-sidebar-mobile.svg);
 		background-position: top center;
 		background-size: contain;
@@ -59,10 +65,10 @@
 	}
 
 	main {
-		background-color: var(--clr-main-bg);
+		background-color: var(--clr-base);
 		border-radius: 0.5rem;
 		padding: 1rem;
-		margin-top: 2rem;
+		margin-top: 1rem;
 	}
 
 	.hidden {

@@ -28,6 +28,7 @@
 		padding: 0.75em 1em;
 		border: 1px solid var(--clr-text-shaded);
 		border-radius: 0.2rem;
+		background-color: transparent;
 		transition: border-color 200ms ease-out;
 	}
 

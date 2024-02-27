@@ -17,13 +17,13 @@
     */
 	--clr-text: hsl(213, 96%, 18%);
 	--clr-highlight: hsl(243, 100%, 62%);
-	--clr-input-bd: hsl(228, 100%, 84%); /* ? */
+	--clr-x: hsl(228, 100%, 84%); /* ? */
 	--clr-step: hsl(206, 94%, 87%);
 	--clr-error: hsl(354, 84%, 57%);
 	--clr-text-shaded: hsl(231, 11%, 63%);
 	--clr-body-bg: hsl(229, 24%, 87%);
-	--clr-text-light: hsl(217, 100%, 97%);
-	--clr-main-bg: hsl(231, 100%, 99%);
+	--clr-section-bg: hsl(217, 100%, 97%);
+	--clr-text-light: hsl(231, 100%, 99%);
 	--clr-base: hsl(0, 0%, 100%);
 }
 

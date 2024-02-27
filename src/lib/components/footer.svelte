@@ -16,7 +16,7 @@
 <style>
 	footer {
 		width: 100%;
-		background-color: var(--clr-main-bg);
+		background-color: var(--clr-base);
 		position: fixed;
 		left: 0;
 		bottom: 0;
