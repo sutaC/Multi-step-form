@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+	/*
+    Primary
+        Marine blue: hsl(213, 96%, 18%)
+        Purplish blue: hsl(243, 100%, 62%)
+        Pastel blue: hsl(228, 100%, 84%)
+        Light blue: hsl(206, 94%, 87%)
+        Strawberry red: hsl(354, 84%, 57%)
+    Neutral
+        Cool gray: hsl(231, 11%, 63%)
+        Light gray: hsl(229, 24%, 87%)
+        Magnolia: hsl(217, 100%, 97%)
+        Alabaster: hsl(231, 100%, 99%)
+        White: hsl(0, 0%, 100%) // x
+    */
+	--clr-text: hsl(213, 96%, 18%);
+	--clr-highlight: hsl(243, 100%, 62%);
+	--clr-section: hsl(228, 100%, 84%);
+	--clr-step: hsl(206, 94%, 87%);
+	--clr-error: hsl(354, 84%, 57%);
+	--clr-text-shaded: hsl(231, 11%, 63%);
+	--clr-body-bg: hsl(229, 24%, 87%);
+	--clr-form-bg: hsl(217, 100%, 97%);
+	--clr-text-light: hsl(231, 100%, 99%);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Ubuntu', sans-serif;
+	color: var(--clr-text);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	background-color: var(--clr-body-bg);
+}
