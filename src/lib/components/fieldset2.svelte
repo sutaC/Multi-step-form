@@ -15,21 +15,21 @@
 		discount={yearly ? '2 months free' : ''}
 		name="type"
 		checked={true}
-		subscript="$9/mo"
+		subscript={yearly ? '$90/yr' : '$9/mo'}
 		icon="icon-arcade.svg"
 	></RadioField>
 	<RadioField
 		label="Advanced"
 		discount={yearly ? '2 months free' : ''}
 		name="type"
-		subscript="$9/mo"
+		subscript={yearly ? '$120/yr' : '$12/mo'}
 		icon="icon-advanced.svg"
 	></RadioField>
 	<RadioField
 		label="Pro"
 		discount={yearly ? '2 months free' : ''}
 		name="type"
-		subscript="$9/mo"
+		subscript={yearly ? '$150/yr' : '$15/mo'}
 		icon="icon-pro.svg"
 	></RadioField>
 
