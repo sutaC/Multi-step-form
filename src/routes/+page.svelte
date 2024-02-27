@@ -5,12 +5,19 @@
 	import Fieldset2 from '$lib/components/fieldset2.svelte';
 	import Fieldset3 from '$lib/components/fieldset3.svelte';
 	import Fieldset4 from '$lib/components/fieldset4.svelte';
+	import Finished from '$lib/components/finished.svelte';
 
 	let selected = 1;
+	let finished = false;
 
-	function handleProceed() {
-		selected++;
-		if (selected > 4) selected = 1;
+	function handleBack() {
+		if (selected > 1) return selected--;
+	}
+
+	function handleNext() {
+		if (selected < 4) return selected++;
+		if (selected !== 4) return;
+		finished = true;
 	}
 </script>
 
@@ -18,7 +25,9 @@
 	<Header {selected}></Header>
 
 	<main>
-		{#if selected === 1}
+		{#if finished}
+			<Finished></Finished>
+		{:else if selected === 1}
 			<Fieldset1></Fieldset1>
 		{:else if selected === 2}
 			<Fieldset2></Fieldset2>
@@ -28,7 +37,14 @@
 			<Fieldset4></Fieldset4>
 		{/if}
 
-		<Footer btnStyle="default" on:click={handleProceed}></Footer>
+		<div class:hidden={finished}>
+			<Footer
+				btnStyle={selected === 4 ? 'confirm' : 'default'}
+				btnBefore={selected > 1}
+				on:back={handleBack}
+				on:next={handleNext}
+			></Footer>
+		</div>
 	</main>
 </div>
 
@@ -47,5 +63,9 @@
 		border-radius: 0.5rem;
 		padding: 1rem;
 		margin-top: 2rem;
+	}
+
+	.hidden {
+		display: none;
 	}
 </style>

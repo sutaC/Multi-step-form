@@ -1,13 +1,16 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	export let btnStyle: 'default' | 'confirm' = 'default';
+	export let btnBefore = true;
+
+	const dispach = createEventDispatcher();
 </script>
 
 <footer>
-	{#if btnStyle === 'default'}
-		<button on:click class="deafult">Next step</button>
-	{:else if btnStyle === 'confirm'}
-		<button on:click class="confirm">Confirm</button>
-	{/if}
+	<button class="back" class:hidden={!btnBefore} on:click={() => dispach('back')}>Go back</button>
+	<button class="next {btnStyle}" on:click={() => dispach('next')}
+		>{btnStyle === 'default' ? 'Next step' : 'Confirm'}</button
+	>
 </footer>
 
 <style>
@@ -19,27 +22,53 @@
 		bottom: 0;
 		text-align: right;
 		padding: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
-	button.deafult {
-		--_bg: var(--clr-text);
-	}
-
-	button.confirm {
-		--_bg: var(--clr-highlight);
+	footer:has(.hidden) {
+		justify-content: end;
 	}
 
 	button {
 		padding: 1em;
+		font-weight: 500;
+		font-size: 0.9rem;
 		border: none;
+	}
+
+	button.next.deafult {
+		--_bg: var(--clr-text);
+	}
+
+	button.next.confirm {
+		--_bg: var(--clr-highlight);
+	}
+
+	button.next {
 		border-radius: 0.25rem;
 		background-color: var(--_bg, var(--clr-text));
 		color: var(--clr-text-light);
-		font-size: 0.9rem;
+		align-self: end;
 	}
 
-	button:hover,
-	button:focus {
-		background-color: color-mix(in srgb, var(--_bg) 100%, var(--clr-base) 20%);
+	button.next:hover,
+	button.next:focus {
+		background-color: color-mix(in srgb, var(--_bg, var(--clr-text)) 100%, var(--clr-base) 20%);
+	}
+
+	button.back {
+		background-color: transparent;
+		color: var(--clr-text-shaded);
+	}
+
+	button.back:hover,
+	button.back:focus {
+		opacity: 0.8;
+	}
+
+	.hidden {
+		display: none;
 	}
 </style>
