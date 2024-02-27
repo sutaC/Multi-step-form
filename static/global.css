@@ -13,7 +13,7 @@
         Light gray: hsl(229, 24%, 87%)
         Magnolia: hsl(217, 100%, 97%)
         Alabaster: hsl(231, 100%, 99%)
-        White: hsl(0, 0%, 100%) // x
+        White: hsl(0, 0%, 100%)
     */
 	--clr-text: hsl(213, 96%, 18%);
 	--clr-highlight: hsl(243, 100%, 62%);
@@ -22,8 +22,9 @@
 	--clr-error: hsl(354, 84%, 57%);
 	--clr-text-shaded: hsl(231, 11%, 63%);
 	--clr-body-bg: hsl(229, 24%, 87%);
-	--clr-form-bg: hsl(217, 100%, 97%);
+	--clr-main-bg: hsl(217, 100%, 97%);
 	--clr-text-light: hsl(231, 100%, 99%);
+	--clr-base: hsl(0, 0%, 100%);
 }
 
 * {
