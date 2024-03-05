@@ -33,7 +33,7 @@
 			<Fieldset2 bind:yearly></Fieldset2>
 		</div>
 		<div class:hidden={selected !== 3 || finished}>
-			<Fieldset3></Fieldset3>
+			<Fieldset3 {yearly}></Fieldset3>
 		</div>
 		<div class:hidden={selected !== 4 || finished}>
 			<Fieldset4></Fieldset4>
