@@ -1,15 +1,15 @@
 <script lang="ts">
+	import type { ChangePageEvent, Option } from '$lib/types';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
 	import Fieldset1 from '$lib/components/fieldset1.svelte';
 	import Fieldset2 from '$lib/components/fieldset2.svelte';
 	import Fieldset3 from '$lib/components/fieldset3.svelte';
-	import Fieldset4 from '$lib/components/fieldset4.svelte';
+	import Summary from '$lib/components/summary.svelte';
 	import Finished from '$lib/components/finished.svelte';
 
 	let selected = 1;
 	let finished = false;
-	let yearly = false;
 
 	function handleBack() {
 		if (selected > 1) return selected--;
@@ -20,6 +20,17 @@
 		if (selected !== 4) return;
 		finished = true;
 	}
+
+	function handleChangePage(event: ChangePageEvent) {
+		const page = event.detail.page;
+		if (page < 1 || page > 4) throw new Error('Page index out of bounds');
+		selected = page;
+	}
+
+	// Data
+	let yearly = false;
+	let plan: Option;
+	let options: Option[];
 </script>
 
 <div class="app">
@@ -30,13 +41,13 @@
 			<Fieldset1></Fieldset1>
 		</div>
 		<div class:hidden={selected !== 2 || finished}>
-			<Fieldset2 bind:yearly></Fieldset2>
+			<Fieldset2 bind:yearly bind:selectedOption={plan}></Fieldset2>
 		</div>
 		<div class:hidden={selected !== 3 || finished}>
-			<Fieldset3 {yearly}></Fieldset3>
+			<Fieldset3 {yearly} bind:options></Fieldset3>
 		</div>
 		<div class:hidden={selected !== 4 || finished}>
-			<Fieldset4></Fieldset4>
+			<Summary {plan} {options} {yearly} on:pageChange={handleChangePage}></Summary>
 		</div>
 
 		{#if finished}

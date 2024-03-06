@@ -9,7 +9,7 @@
 	const id = 'ID' + label.replaceAll(' ', '').toLowerCase();
 </script>
 
-<input type="radio" {name} {id} {checked} />
+<input type="radio" {name} {id} {checked} on:click />
 <label for={id}>
 	<i class="icon" style="--_src: url({icon})"></i>
 	<div class="header">

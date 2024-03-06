@@ -42,3 +42,8 @@ body {
 	min-height: 100vh;
 	background-color: var(--clr-body-bg);
 }
+
+h1 {
+	font-size: 1.75rem;
+	margin: 0.5em 0;
+}
