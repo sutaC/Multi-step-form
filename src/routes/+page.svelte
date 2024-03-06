@@ -10,6 +10,7 @@
 
 	let selected = 1;
 	let finished = false;
+	const form = 'mainForm';
 
 	function handleBack() {
 		if (selected > 1) return selected--;
@@ -34,34 +35,42 @@
 </script>
 
 <div class="app">
-	<Header {selected}></Header>
+	<div class="mobile">
+		<Header {selected}></Header>
+	</div>
 
 	<main>
-		<div class:hidden={selected !== 1 || finished}>
-			<Fieldset1></Fieldset1>
-		</div>
-		<div class:hidden={selected !== 2 || finished}>
-			<Fieldset2 bind:yearly bind:selectedOption={plan}></Fieldset2>
-		</div>
-		<div class:hidden={selected !== 3 || finished}>
-			<Fieldset3 {yearly} bind:options></Fieldset3>
-		</div>
-		<div class:hidden={selected !== 4 || finished}>
-			<Summary {plan} {options} {yearly} on:pageChange={handleChangePage}></Summary>
+		<div class="banner desktop">
+			<Header {selected}></Header>
 		</div>
 
-		{#if finished}
-			<Finished></Finished>
-		{/if}
+		<form id={form}>
+			<div class:hidden={selected !== 1 || finished}>
+				<Fieldset1 {form}></Fieldset1>
+			</div>
+			<div class:hidden={selected !== 2 || finished}>
+				<Fieldset2 {form} bind:yearly bind:selectedOption={plan}></Fieldset2>
+			</div>
+			<div class:hidden={selected !== 3 || finished}>
+				<Fieldset3 {form} {yearly} bind:options></Fieldset3>
+			</div>
+			<div class:hidden={selected !== 4 || finished}>
+				<Summary {plan} {options} {yearly} on:pageChange={handleChangePage}></Summary>
+			</div>
 
-		<div class:hidden={finished}>
-			<Footer
-				btnStyle={selected === 4 ? 'confirm' : 'default'}
-				btnBefore={selected > 1}
-				on:back={handleBack}
-				on:next={handleNext}
-			></Footer>
-		</div>
+			{#if finished}
+				<Finished></Finished>
+			{/if}
+
+			<div class:hidden={finished}>
+				<Footer
+					btnStyle={selected === 4 ? 'confirm' : 'default'}
+					btnBefore={selected > 1}
+					on:back={handleBack}
+					on:next={handleNext}
+				></Footer>
+			</div>
+		</form>
 	</main>
 </div>
 
@@ -84,5 +93,43 @@
 
 	.hidden {
 		display: none;
+	}
+
+	.mobile {
+		display: block;
+	}
+	.desktop {
+		display: none;
+	}
+
+	@media (width >= 700px) {
+		.mobile {
+			display: none;
+		}
+		.desktop {
+			display: block;
+		}
+
+		.app {
+			background-image: none;
+			display: grid;
+			place-content: center;
+		}
+
+		main {
+			max-width: 80vw;
+			display: flex;
+			justify-content: space-between;
+			gap: 5%;
+		}
+
+		.banner {
+			border-radius: 1rem;
+			background-image: url('bg-sidebar-desktop.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 35%;
+		}
 	}
 </style>

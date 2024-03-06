@@ -71,4 +71,10 @@
 	.hidden {
 		display: none;
 	}
+
+	@media (width >= 700px) {
+		footer {
+			position: relative;
+		}
+	}
 </style>
