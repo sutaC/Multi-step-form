@@ -108,7 +108,7 @@
 	}
 
 	input:checked + label > .checkbox > i.icon {
-		background-image: url('icon-checkmark.svg');
+		background-image: url('/icon-checkmark.svg');
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: 75%;

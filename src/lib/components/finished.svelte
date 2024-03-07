@@ -27,7 +27,7 @@
 	}
 
 	.icon.checkmark {
-		background-image: url('icon-thank-you.svg');
+		background-image: url('/icon-thank-you.svg');
 		width: 3rem;
 		margin: 0 auto 1.5rem;
 	}

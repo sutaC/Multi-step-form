@@ -32,7 +32,7 @@
 			discount={yearly ? '2 months free' : ''}
 			name="type"
 			subscript={yearly ? '$90/yr' : '$9/mo'}
-			icon="icon-arcade.svg"
+			icon="/icon-arcade.svg"
 			checked={selected === 0}
 			on:click={() => handleSelect(0)}
 		></RadioField>
@@ -41,7 +41,7 @@
 			discount={yearly ? '2 months free' : ''}
 			name="type"
 			subscript={yearly ? '$120/yr' : '$12/mo'}
-			icon="icon-advanced.svg"
+			icon="/icon-advanced.svg"
 			checked={selected === 1}
 			on:click={() => handleSelect(1)}
 		></RadioField>
@@ -50,7 +50,7 @@
 			discount={yearly ? '2 months free' : ''}
 			name="type"
 			subscript={yearly ? '$150/yr' : '$15/mo'}
-			icon="icon-pro.svg"
+			icon="/icon-pro.svg"
 			checked={selected === 2}
 			on:click={() => handleSelect(2)}
 		></RadioField>

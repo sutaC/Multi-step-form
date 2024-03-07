@@ -87,7 +87,7 @@
 	.app {
 		min-height: 100vh;
 		padding: 0.75rem;
-		background-image: url(bg-sidebar-mobile.svg);
+		background-image: url('/bg-sidebar-mobile.svg');
 		background-position: top center;
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -145,7 +145,7 @@
 
 		.banner {
 			border-radius: 1rem;
-			background-image: url('bg-sidebar-desktop.svg');
+			background-image: url('/bg-sidebar-desktop.svg');
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
