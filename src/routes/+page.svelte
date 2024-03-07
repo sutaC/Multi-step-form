@@ -8,9 +8,16 @@
 	import Summary from '$lib/components/summary.svelte';
 	import Finished from '$lib/components/finished.svelte';
 
+	let formRef: HTMLFormElement;
 	let selected = 1;
 	let finished = false;
 	const form = 'mainForm';
+
+	function handleFinish() {
+		finished = true;
+		// HANDLES FORM SUBMIT:
+		// fetch(formRef.action || '/', { body: new FormData(formRef), method: formRef.method || 'post' });
+	}
 
 	function handleBack() {
 		if (selected > 1) return selected--;
@@ -18,8 +25,7 @@
 
 	function handleNext() {
 		if (selected < 4) return selected++;
-		if (selected !== 4) return;
-		finished = true;
+		if (selected === 4) return handleFinish();
 	}
 
 	function handleChangePage(event: ChangePageEvent) {
@@ -44,7 +50,7 @@
 			<Header {selected}></Header>
 		</div>
 
-		<form id={form}>
+		<form id={form} bind:this={formRef} action="/form-action" method="post">
 			<div class:hidden={selected !== 1 || finished}>
 				<Fieldset1 {form}></Fieldset1>
 			</div>
@@ -66,8 +72,8 @@
 				<Footer
 					btnStyle={selected === 4 ? 'confirm' : 'default'}
 					btnBefore={selected > 1}
-					on:back={handleBack}
-					on:next={handleNext}
+					on:back={() => handleBack()}
+					on:next={() => handleNext()}
 				></Footer>
 			</div>
 		</form>

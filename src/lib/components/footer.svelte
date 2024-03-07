@@ -7,8 +7,10 @@
 </script>
 
 <footer>
-	<button class="back" class:hidden={!btnBefore} on:click={() => dispach('back')}>Go back</button>
-	<button class="next {btnStyle}" on:click={() => dispach('next')}
+	<button class="back" class:hidden={!btnBefore} on:click={() => dispach('back')} type="button"
+		>Go back</button
+	>
+	<button class="next {btnStyle}" on:click={() => dispach('next')} type="button"
 		>{btnStyle === 'default' ? 'Next step' : 'Confirm'}</button
 	>
 </footer>
