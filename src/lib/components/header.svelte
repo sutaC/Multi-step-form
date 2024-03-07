@@ -47,6 +47,7 @@
 		color: var(--clr-text-light);
 		border: 1px solid var(--clr-text-light);
 		padding: 0.25em 0.5em;
+		margin: auto;
 		aspect-ratio: 1;
 		border-radius: 100%;
 		font-weight: 500;
@@ -96,6 +97,10 @@
 			justify-content: start;
 			align-items: center;
 			padding: 2rem;
+		}
+
+		.step {
+			margin: 0;
 		}
 	}
 </style>

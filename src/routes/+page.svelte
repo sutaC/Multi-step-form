@@ -62,7 +62,7 @@
 				<Finished></Finished>
 			{/if}
 
-			<div class:hidden={finished}>
+			<div class="footerContainer" class:hidden={finished}>
 				<Footer
 					btnStyle={selected === 4 ? 'confirm' : 'default'}
 					btnBefore={selected > 1}
@@ -117,10 +117,21 @@
 		}
 
 		main {
-			max-width: 80vw;
+			width: clamp(50vw, 50rem, 90vw);
+			aspect-ratio: 1.618;
+
 			display: flex;
 			justify-content: space-between;
 			gap: 5%;
+		}
+
+		form {
+			overflow: auto;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			min-height: 100%;
+			width: 65%;
 		}
 
 		.banner {

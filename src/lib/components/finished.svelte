@@ -31,4 +31,12 @@
 		width: 3rem;
 		margin: 0 auto 1.5rem;
 	}
+
+	@media (width >= 700px) {
+		.finished {
+			display: grid;
+			place-content: center;
+			height: 100%;
+		}
+	}
 </style>

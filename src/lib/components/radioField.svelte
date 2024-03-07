@@ -67,4 +67,14 @@
 	p.discount:empty {
 		display: none;
 	}
+
+	@media (width >= 700px) {
+		label {
+			flex: 1;
+			flex-direction: column;
+			align-items: start;
+			gap: 2.5rem;
+			padding: 1rem 1.5rem;
+		}
+	}
 </style>
