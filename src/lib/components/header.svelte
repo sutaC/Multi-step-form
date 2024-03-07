@@ -51,6 +51,7 @@
 		aspect-ratio: 1;
 		border-radius: 100%;
 		font-weight: 500;
+		transition: all 300ms ease-out;
 	}
 
 	.step.selected {
