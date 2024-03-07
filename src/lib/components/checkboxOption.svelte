@@ -52,6 +52,11 @@
 		transition: all 150ms ease-out;
 	}
 
+	label:hover,
+	label:focus {
+		border-color: var(--clr-highlight);
+	}
+
 	.description {
 		width: 100%;
 	}

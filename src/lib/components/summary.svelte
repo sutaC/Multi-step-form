@@ -83,6 +83,13 @@
 		font-size: 1em;
 		margin: 0.5rem 0;
 		padding: 0;
+		cursor: pointer;
+		transition: all 150ms ease-out;
+	}
+
+	button.change:hover,
+	button.change:focus {
+		color: var(--clr-highlight);
 	}
 
 	.heading {

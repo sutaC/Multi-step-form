@@ -36,6 +36,8 @@
 		font-weight: 500;
 		font-size: 0.9rem;
 		border: none;
+		cursor: pointer;
+		transition: all 150ms ease-out;
 	}
 
 	button.next.deafult {
@@ -61,11 +63,12 @@
 	button.back {
 		background-color: transparent;
 		color: var(--clr-text-shaded);
+		font-weight: 500;
 	}
 
 	button.back:hover,
 	button.back:focus {
-		opacity: 0.8;
+		color: var(--clr-text);
 	}
 
 	.hidden {

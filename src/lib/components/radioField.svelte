@@ -32,6 +32,13 @@
 		border: 1px solid var(--clr-text-shaded);
 		border-radius: 0.5rem;
 		margin: 0.5rem 0;
+		cursor: pointer;
+		transition: all 150ms ease-out;
+	}
+
+	label:hover,
+	label:focus {
+		border-color: var(--clr-highlight);
 	}
 
 	input:checked + label {
