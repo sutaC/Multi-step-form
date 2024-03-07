@@ -13,7 +13,7 @@
 		<label for={id}>{label}</label>
 		<div class="error">{error}</div>
 	</div>
-	<input type="text" {id} {placeholder} bind:value />
+	<input type="text" {id} {placeholder} bind:value on:input />
 </div>
 
 <style>
@@ -51,10 +51,11 @@
 		color: var(--clr-error);
 		font-size: 0.75rem;
 		font-weight: 500;
+		transition: all 150ms ease-in;
 	}
 
 	.error:empty {
-		display: none;
+		opacity: 0;
 	}
 
 	.header:has(.error:not(:empty)) + input {

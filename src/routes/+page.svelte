@@ -9,6 +9,7 @@
 	import Finished from '$lib/components/finished.svelte';
 
 	let formRef: HTMLFormElement;
+	let validateFieldset1: () => boolean;
 	let selected = 1;
 	let finished = false;
 	const form = 'mainForm';
@@ -17,6 +18,7 @@
 		finished = true;
 		// HANDLES FORM SUBMIT:
 		// fetch(formRef.action || '/', { body: new FormData(formRef), method: formRef.method || 'post' });
+		console.log('Submited data to server');
 	}
 
 	function handleBack() {
@@ -24,6 +26,7 @@
 	}
 
 	function handleNext() {
+		if (selected === 1) if (!validateFieldset1()) return;
 		if (selected < 4) return selected++;
 		if (selected === 4) return handleFinish();
 	}
@@ -52,7 +55,7 @@
 
 		<form id={form} bind:this={formRef} action="/form-action" method="post">
 			<div class:hidden={selected !== 1 || finished}>
-				<Fieldset1 {form}></Fieldset1>
+				<Fieldset1 {form} bind:validate={validateFieldset1}></Fieldset1>
 			</div>
 			<div class:hidden={selected !== 2 || finished}>
 				<Fieldset2 {form} bind:yearly bind:selectedOption={plan}></Fieldset2>
